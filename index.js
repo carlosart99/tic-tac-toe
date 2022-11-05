@@ -65,11 +65,31 @@ const Player = (name) => {
     return {getName};
 }
 
+let board, status;
+
 document.addEventListener('click',function(e){
-    if(e.target && (e.target.id==='pvp')){
+    if (e.target && e.target.id==='pvp'){
         const mode = document.querySelector('.select-mode');
         mode.remove();
-        const board = Gameboard('X','O');
+        board = Gameboard('X','O');
+    }
+    else if (e.target && e.target.className==='cell'){
+        let cellPosition = e.target.id.replace('cell-','');
+        if (board.checkCell(cellPosition)){
+            let actualPlayer = board.getTurn();
+            e.target.textContent = actualPlayer;
+            board.markCell(cellPosition);  
+            if (board.checkStatus() === 'win'){
+                const board = document.querySelector('.board');
+                board.innerHTML = `<div><h1>${actualPlayer} Win!</h1><button>Play Again</button></div>`
+                board.style = 'display:flex; justify-content:center; align-items:center;';
+            }
+            else if (board.checkStatus() === 'draw'){
+                const board = document.querySelector('.board');
+                board.innerHTML = `<div><h1>It's a draw</h1><button>Play Again</button></div>`
+                board.style = 'display:flex; justify-content:center; align-items:center;';
+            }
+        }
     }
 })
 
