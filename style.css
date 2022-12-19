@@ -1,5 +1,4 @@
 html, body{
-    background-color: red;
     height: 100%;
 }
 
@@ -24,14 +23,12 @@ html, body{
 
 .container{
     height: 100%;
-    background-color: wheat;
     display: grid;
     grid-template-rows: repeat(6, 1fr);
 }
 
 .board{
     grid-row: 3 / 6;
-    background-color: red;
     display: grid;
     grid-template-columns: repeat(3,minmax(80px,150px));
     grid-template-rows: repeat(3,minmax(80px,150px));
@@ -39,23 +36,23 @@ html, body{
 }
 
 .board div:nth-child(2){
-    border-left: 1px solid black;
-    border-right: 1px solid black;
+    border-left: 3px solid black;
+    border-right: 3px solid black;
 }
 .board div:nth-child(4){
-    border-top: 1px solid black;
-    border-bottom: 1px solid black;
+    border-top: 3px solid black;
+    border-bottom: 3px solid black;
 }
 .board div:nth-child(5){
-    border: 1px solid black;
+    border: 3px solid black;
 }
 .board div:nth-child(6){
-    border-top: 1px solid black;
-    border-bottom: 1px solid black;
+    border-top: 3px solid black;
+    border-bottom: 3px solid black;
 }
 .board div:nth-child(8){
-    border-left: 1px solid black;
-    border-right: 1px solid black;
+    border-left: 3px solid black;
+    border-right: 3px solid black;
 }
 
 .players{
@@ -64,6 +61,27 @@ html, body{
     align-items: center;
 }
 
+.player-counter{
+    text-align: center;
+}
+
+.player-counter p{
+    font-size:larger;
+}
+
+.cell{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: black;
+    font-size: larger;
+    font-weight: bolder;
+}
+
 .turn{
+    text-align: center;
+}
+
+.rslt-board{
     text-align: center;
 }
